@@ -6,7 +6,7 @@ while(True):  #Start an infinite loop of capturing images.
 
 	#Capture frame by frame
 														#the first returned value is a Boolean indicating 
-	TrueOrFalse, capturedFrame = capturingImages.read() #if the frame was read correctly (True) or not (False).
+	TrueOrFalse, capturedFrame = capturingImages.read() #if the frame was read correctly (True) or not (False). I will not use it.
 													
 	#Display the frame
 	cv2.imshow('frame',capturedFrame)
