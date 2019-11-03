@@ -9,11 +9,15 @@ while(True):  #Start an infinite loop of capturing images.
 	#Capture frame by frame
 	TrueOrFalse, capturedFrame = capturingImages.read() #The first returned value is a Boolean indicating  if the frame was read correctly (True) or not (False). I will not use it.
 	capturedFrameConvertedToGray = cv2.cvtColor(capturedFrame, cv2.COLOR_BGR2GRAY) #Conver the frame to gray because this is how this cascade works
-	facesFromCapturedFrameConvertedToGray = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors = 5) #Values from documentation, I can modify them for better results, but this are defaults.
+	facesFromCapturedFrameConvertedToGray = face_cascade.detectMultiScale(capturedFrameConvertedToGray, scaleFactor=1.5, minNeighbors = 5) #Values from documentation, I can modify them for better results, but this are defaults.
 	for (x, y, width, height) in facesFromCapturedFrameConvertedToGray:
 		print(x, y, width, height)
+		regionOfInterestForGray = capturedFrameConvertedToGray[y:y+height, x:x+width]
+		testImage = 'testImage.png'
+		cv2.imwrite(testImage, regionOfInterestForGray)
+
 	#Display the frame
-	cv2.imshow('frame',capturedFrame)
+	cv2.imshow('frame',capturedFrame) #Display the frames in color but I am working with them in gray.
 
 	if cv2.waitKey(1) == 27: #Close when pressing the ESC button.
 		break
