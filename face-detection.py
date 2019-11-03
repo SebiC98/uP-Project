@@ -1,17 +1,18 @@
-import cv2
-import numpy as np
+import cv2 # Import Open CV
 
-face_cascade = cv2.CascadeClassifier('haarascade_frontalface_defaul.xml')
+capturingImages =cv2.VideoCapture(0) # Start capturing images.
 
-cap =cv2.VideoCapture(0)
+while(True):  #Start an infinite loop of capturing images.	
 
-while(True):
+	#Capture frame by frame
+														#the first returned value is a Boolean indicating 
+	TrueOrFalse, capturedFrame = capturingImages.read() #if the frame was read correctly (True) or not (False).
+													
+	#Display the frame
+	cv2.imshow('frame',capturedFrame)
 
-	ret, frame = cap.read()
-
-	cv2.imshow('frame',frame)
-	if cv2.waitKey(20) & 0xFF == ord('q'):
+	if cv2.waitKey(1) == 27: #Close when pressing the ESC button.
 		break
 
-cap.release()
-cv2.destroyallWindows()
+capturingImages.release() #Stop capturing images.
+cv2.destroyallWindows()	#Close all windows.
