@@ -16,6 +16,14 @@ while(True):  #Start an infinite loop of capturing images.
 		testImage = 'testImage.png'
 		cv2.imwrite(testImage, regionOfInterestForGray)
 
+		rectangleColor = (0,255,255) #Declaring the color of the rectangle in BGR 0-255
+		rectangleStroke = 2 #Rectangle stroke
+
+		rectangleWidth=x+width
+		rectangleHeight=y+height
+
+		cv2.rectangle(capturedFrame, (x,y), (rectangleWidth, rectangleHeight), rectangleColor, rectangleStroke) # (x,y) starting coordinates (rectangleWidth, rectangle Height) ending coordinates
+
 	#Display the frame
 	cv2.imshow('frame',capturedFrame) #Display the frames in color but I am working with them in gray.
 
