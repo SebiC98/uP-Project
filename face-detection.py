@@ -1,13 +1,17 @@
 import cv2 # Import Open CV
 
+face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
+
 capturingImages =cv2.VideoCapture(0) # Start capturing images.
 
 while(True):  #Start an infinite loop of capturing images.	
 
 	#Capture frame by frame
-														#the first returned value is a Boolean indicating 
-	TrueOrFalse, capturedFrame = capturingImages.read() #if the frame was read correctly (True) or not (False). I will not use it.
-													
+	TrueOrFalse, capturedFrame = capturingImages.read() #The first returned value is a Boolean indicating  if the frame was read correctly (True) or not (False). I will not use it.
+	capturedFrameConvertedToGray = cv2.cvtColor(capturedFrame, cv2.COLOR_BGR2GRAY) #Conver the frame to gray because this is how this cascade works
+	facesFromCapturedFrameConvertedToGray = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors = 5) #Values from documentation, I can modify them for better results, but this are defaults.
+	for (x, y, width, height) in facesFromCapturedFrameConvertedToGray:
+		print(x, y, width, height)
 	#Display the frame
 	cv2.imshow('frame',capturedFrame)
 
