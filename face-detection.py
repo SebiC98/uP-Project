@@ -4,6 +4,10 @@ import pickle
 
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
+eye_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_eye.xml')
+
+
+
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("trainner.yml") 
 
@@ -29,7 +33,7 @@ while(True):  #Start an infinite loop of capturing images.
 
 		# Recognizer ? We can use deep lerned model predict
 		id_, confidence = recognizer.predict(regionOfInterestForGray)
-		if confidence >= 45 and confidence <=85:
+		if confidence >= 4 and confidence <=85:
 			#print(id_)
 			#print(newLabels[id_])
 			font = cv2.FONT_HERSHEY_SIMPLEX
@@ -48,6 +52,8 @@ while(True):  #Start an infinite loop of capturing images.
 		rectangleHeight=y+height
 
 		cv2.rectangle(capturedFrame, (x,y), (rectangleWidth, rectangleHeight), rectangleColor, rectangleStroke) # (x,y) starting coordinates (rectangleWidth, rectangle Height) ending coordinates
+
+		
 
 	#Display the frame
 	cv2.imshow('frame',capturedFrame) #Display the frames in color but I am working with them in gray.
