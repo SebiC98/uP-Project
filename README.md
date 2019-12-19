@@ -1,3 +1,3 @@
 # uP-Project
 
-Project 15. Face identification using Python/OPEN CV.
+Project 15. Face detection using Python/OPEN CV.
