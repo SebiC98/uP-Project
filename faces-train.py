@@ -8,12 +8,12 @@ baseDirectory = os.path.dirname(os.path.abspath(__file__)) #Where this file is s
 imageDirectory = os.path.join(baseDirectory, "images") #Looking for the images folder.
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
-recognizer =cv2.face.LBPHFaceRecognizer_create()
+recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 currentId = 0;
 labelIds={}
 y_labels= []
-trainigData = []
+trainingData = []
 
 for root, directories, images in os.walk(imageDirectory):
 	for image in images:
@@ -46,5 +46,5 @@ with open("labels.pickle", 'wb') as f:
 	pickle.dump(labelIds, f)
 
 
-recognizer.train(trainigData, np.array(y_labels))
+recognizer.train(trainingData, np.array(y_labels))
 recognizer.save("trainner.yml")
