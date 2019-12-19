@@ -8,7 +8,7 @@ for root, directories, images in os.walk(imageDirectory):
 	for image in images:
 		if image.endswith("png") or image.endswith("jpg"):
 			pathOfTheImage = os.path.join(root, image)
-			label = os.path.basename(os.path.dirname(pathOfTheImage)).replace(" ","-").lower() #Making sure the folder names are written as aaa-bbb.
+			label = os.path.basename(root).replace(" ","-").lower() #Making sure the folder names are written as aaa-bbb.
 			print(label) #Printing the labels
 
  
