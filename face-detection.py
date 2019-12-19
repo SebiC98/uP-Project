@@ -1,6 +1,9 @@
 import cv2 # Import Open CV
 import numpy as np
 import pickle
+import os
+
+os.system('python faces-train.py')
 
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')

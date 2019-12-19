@@ -3,7 +3,7 @@ import os
 import numpy as np
 from PIL import Image
 import pickle
-
+print('started')
 baseDirectory = os.path.dirname(os.path.abspath(__file__)) #Where this file is saved we get the path.
 imageDirectory = os.path.join(baseDirectory, "images") #Looking for the images folder.
 
