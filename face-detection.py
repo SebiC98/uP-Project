@@ -30,8 +30,8 @@ while(True):  #Start an infinite loop of capturing images.
 		# Recognizer ? We can use deep lerned model predict
 		id_, confidence = recognizer.predict(regionOfInterestForGray)
 		if confidence >= 45 and confidence <=85:
-			print(id_)
-			print(newLabels[id_])
+			#print(id_)
+			#print(newLabels[id_])
 			font = cv2.FONT_HERSHEY_SIMPLEX
 			name = newLabels[id_]
 			color = (255, 255, 255)

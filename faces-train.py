@@ -29,7 +29,10 @@ for root, directories, images in os.walk(imageDirectory):
 			#y_labels.append(label) #some number
 			#trainingData.append(pathOfTheImage) #verify this image, turn into a NUMPY array, GRAY
 			pilImage = Image.open(pathOfTheImage).convert("L") #convert into grayscale
-			imageArray = np.array(pilImage, "uint8") #convert into a NUMPY array. basically converting each picture into numbers. each pixel into a number.
+			#size = (550, 550)
+			#finalImage = pilImage.resize(size, Image.ANTIALIAS) #Resize all images to the same dimension for a better accuracy.
+			#imageArray = np.array(finalImage, "uint8") #convert into a NUMPY array. basically converting each picture into numbers. each pixel into a number.
+			imageArray = np.array(pilImage, "uint8")
 			#print(imageArray)
 			faceFromImage = face_cascade.detectMultiScale(imageArray, scaleFactor=1.5, minNeighbors = 5) #We have to detect the face in each picture.
 
