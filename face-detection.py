@@ -32,6 +32,11 @@ while(True):  #Start an infinite loop of capturing images.
 		if confidence >= 45 and confidence <=85:
 			print(id_)
 			print(newLabels[id_])
+			font = cv2.FONT_HERSHEY_SIMPLEX
+			name = newLabels[id_]
+			color = (255, 255, 255)
+			stroke = 2
+			cv2.putText(capturedFrame, name, (x,y), font, 1, color, stroke, cv2.LINE_AA)
 
 		testImage = '10.png'
 		cv2.imwrite(testImage, regionOfInterestColor)
