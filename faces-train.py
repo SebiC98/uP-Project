@@ -41,7 +41,6 @@ for root, directories, images in os.walk(imageDirectory):
 				trainingData.append(regionOfInterestForGray)
 				y_labels.append(id_)
 
-#print(y_labels)
 #print(trainingData)
 
 

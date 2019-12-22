@@ -7,7 +7,6 @@ os.system('python faces-train.py')
 
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
-eye_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_eye.xml')
 
 
 
@@ -34,7 +33,7 @@ while(True):  #Start an infinite loop of capturing images.
 		regionOfInterestForGray = capturedFrameConvertedToGray[y:y+height, x:x+width]
 		regionOfInterestColor = capturedFrame[y:y+height, x:x+width]
 
-		# Recognizer ? We can use deep lerned model predict
+		# Recognizer ? We will use deep lerned model prediction.
 		id_, confidence = recognizer.predict(regionOfInterestForGray)
 		if confidence >= 4 and confidence <=85:
 			#print(id_)
