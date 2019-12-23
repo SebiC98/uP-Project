@@ -6,7 +6,7 @@ import os
 os.system('python faces-train.py')
 
 
-face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
+face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_default.xml')
 
 
 
