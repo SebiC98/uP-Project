@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 import os
 
-os.system('python faces-train.py')
+#os.system('python faces-train.py')
 
 
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_default.xml')
@@ -44,8 +44,8 @@ while(True):  #Start an infinite loop of capturing images.
 			stroke = 2
 			cv2.putText(capturedFrame, name, (x,y), font, 1, color, stroke, cv2.LINE_AA)
 
-		#testImage = '10.png'
-		#cv2.imwrite(testImage, regionOfInterestColor)
+		testImage = 'testImage.png'
+		cv2.imwrite(testImage, regionOfInterestColor)
 
 		rectangleColor = (0,255,255) #Declaring the color of the rectangle in BGR 0-255
 		rectangleStroke = 2 #Rectangle stroke
