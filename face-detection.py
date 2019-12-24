@@ -35,6 +35,7 @@ while(True):  #Start an infinite loop of capturing images.
 
 		# Recognizer ? We will use deep lerned model prediction.
 		id_, confidence = recognizer.predict(regionOfInterestForGray)
+		print(confidence)
 		if confidence >= 4 and confidence <= 85:
 			#print(id_)
 			#print(newLabels[id_])
